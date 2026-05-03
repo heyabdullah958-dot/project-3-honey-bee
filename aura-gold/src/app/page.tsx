@@ -34,89 +34,96 @@ export default function Home() {
   };
 
   return (
-    <main className="relative bg-obsidian min-h-screen">
+    <main className="relative bg-obsidian min-h-screen w-full overflow-x-hidden">
       <Navbar />
       <Scene />
       
       <TrustBadgeStrip />
 
-      {/* Product Teaser Section */}
-      <section className="relative z-20 py-24 px-8 bg-obsidian border-t border-white-pure/5">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+      {/* Product Teaser Section - The Curated Collection */}
+      <section className="relative z-20 py-32 px-8 bg-obsidian transition-colors duration-500 w-full">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <motion.div 
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-                <h2 className="text-gold-bright text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-6 font-sans">The Collection</h2>
-                <h3 className="text-5xl md:text-[clamp(2.5rem,5vw,5rem)] font-semibold tracking-tight mb-8 leading-[1.1] font-serif text-white-pure">
-                    Bio-Active <br /> Mastery.
+                <h2 className="text-gold-bright text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] mb-10 font-sans">The 2026 Harvest</h2>
+                <h3 className="text-5xl md:text-[clamp(3rem,5vw,5.5rem)] font-light tracking-tight mb-10 leading-[1.05] font-serif text-white-pure" style={{textWrap: 'balance'}}>
+                    Bio-Active Resonance.
                 </h3>
-                <p className="text-lg text-white-muted font-light leading-relaxed max-w-md mb-12 font-sans">
-                    Discover our signature MGO 850+ Manuka. A limited harvest of pure Australian liquid gold, re-engineered for those who demand the pinnacle of wellness.
+                <p className="text-lg md:text-xl text-white-muted font-light leading-relaxed max-w-md mb-16 font-sans">
+                    A limited release of our signature MGO 850+ Manuka. Each jar is a testament to the precision of nature, harvested in silence and processed with reverence.
                 </p>
                 <a 
                     href="/products" 
-                    className="inline-flex items-center gap-4 text-white-soft text-xs font-bold uppercase tracking-widest group font-sans"
+                    className="inline-flex items-center gap-6 text-white-soft text-[10px] font-bold uppercase tracking-[0.3em] group font-sans border-b border-white-pure/10 pb-4 hover:border-gold-bright transition-all duration-500"
                 >
-                    Explore the Product
-                    <div className="w-12 h-12 rounded-full border border-white-pure/20 flex items-center justify-center group-hover:border-gold-bright group-hover:bg-gold-bright group-hover:text-obsidian transition-all duration-300">
-                        <ArrowRight className="w-5 h-5" />
-                    </div>
+                    View the Collection
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500 text-gold-bright" />
                 </a>
             </motion.div>
 
             <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="aspect-[4/5] bg-surface rounded-3xl border border-border-subtle flex items-center justify-center relative overflow-hidden group"
+                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                className="aspect-[4/5] bg-charcoal rounded-[40px] border border-border-subtle flex items-center justify-center relative overflow-hidden group transition-colors duration-500"
             >
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent z-10" />
-                <span className="text-[10px] uppercase tracking-widest text-white-dim z-20 font-sans">[Product Reveal Animation]</span>
-                <div className="absolute bottom-12 left-12 z-20">
-                    <span className="text-gold-bright text-[10px] font-bold uppercase tracking-widest font-sans">Aura Gold Signature</span>
-                    <h4 className="text-2xl font-bold tracking-tight text-white-pure font-serif">MGO 850+ / 500g</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/20 to-transparent z-10 transition-colors duration-500" />
+                {/* Product Showcase */}
+                <div className="relative z-0 w-full h-full">
+                    <img 
+                      src="/hero-bg.jpg"
+                      alt="Aura Gold Signature Manuka Honey"
+                      className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[2s] ease-out opacity-70"
+                    />
+                </div>
+                
+                <div className="absolute bottom-16 left-16 z-20">
+                    <span className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.3em] font-sans mb-3 block">Aura Gold Signature</span>
+                    <h4 className="text-3xl font-light tracking-tight text-white-pure font-serif">MGO 850+ <span className="text-xl text-white-muted ml-2">/ 500g</span></h4>
                 </div>
             </motion.div>
         </div>
       </section>
 
-      {/* Science Section */}
-      <section className="relative z-20 py-32 bg-obsidian border-t border-white-pure/5 overflow-hidden">
+      {/* Science Section - The Wellness Journal Style */}
+      <section className="relative z-20 py-40 bg-charcoal transition-colors duration-500 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div className="relative">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-gold-bright/5 rounded-full blur-[120px] -z-10" />
-                    <MGOCounter value={850} label="Bio-Active Potency (MGO)" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+                <div className="relative order-2 lg:order-1">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] aspect-square bg-gold-bright/5 rounded-full blur-[140px] -z-10" />
+                    <MGOCounter value={850} label="Bio-Active Resonance" />
                 </div>
                 
-                <div className="space-y-12">
+                <div className="space-y-16 order-1 lg:order-2">
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 1 }}
                     >
-                        <h2 className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.4em] mb-4 font-sans">The Science</h2>
-                        <h3 className="text-4xl md:text-5xl font-semibold tracking-tight font-serif text-white-pure mb-6">Understanding MGO.</h3>
-                        <p className="text-white-muted font-light leading-relaxed font-sans text-lg">
-                            Methylglyoxal (MGO) is the compound responsible for the unique antibacterial properties of Manuka honey. The higher the MGO, the greater the bio-active potency.
+                        <h2 className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.5em] mb-6 font-sans">Empirical Proof</h2>
+                        <h3 className="text-4xl md:text-6xl font-light tracking-tight font-serif text-white-pure mb-8">The Molecular Standard.</h3>
+                        <p className="text-white-muted font-light leading-relaxed font-sans text-lg md:text-xl">
+                            Methylglyoxal (MGO) is the sovereign compound of Manuka. At Aura Gold, we measure potency not just in numbers, but in the biological resonance of every jar.
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 border-t border-border-subtle pt-12 transition-colors duration-500">
                         <div>
-                            <h4 className="text-white-soft font-bold mb-2 font-serif text-xl">Why Australian?</h4>
-                            <p className="text-sm text-white-dim font-sans leading-relaxed">
-                                Our bees forage on Leptospermum polygalifolium, native to Australia, yielding some of the world's highest MGO concentrations.
+                            <h4 className="text-white-soft font-light mb-4 font-serif text-2xl italic">Provenance</h4>
+                            <p className="text-sm text-white-muted font-sans leading-relaxed">
+                                Sourced from the ancient Leptospermum groves of the Australian East Coast. Untouched by industry, pure by design.
                             </p>
                         </div>
                         <div>
-                            <h4 className="text-white-soft font-bold mb-2 font-serif text-xl">Rigorous Testing</h4>
-                            <p className="text-sm text-white-dim font-sans leading-relaxed">
-                                Every batch is third-party lab tested in Australia to guarantee MGO levels, purity, and authenticity.
+                            <h4 className="text-white-soft font-light mb-4 font-serif text-2xl italic">Integrity</h4>
+                            <p className="text-sm text-white-muted font-sans leading-relaxed">
+                                Every batch undergoes triple-redundant laboratory testing to ensure MGO levels are absolute and uncontested.
                             </p>
                         </div>
                     </div>
@@ -125,23 +132,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quiz Section */}
-      <section className="relative z-20 py-24 bg-charcoal border-t border-white-pure/5">
-        <div className="max-w-7xl mx-auto px-8 text-center mb-12">
+      {/* Quiz Section - Find Your Aura */}
+      <section className="relative z-20 py-32 bg-obsidian transition-colors duration-500">
+        <div className="max-w-7xl mx-auto px-8 text-center mb-20">
             <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.4em] mb-4 font-sans"
+                className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.5em] mb-6 font-sans"
             >
-                Personalized Selection
+                Selection Protocol
             </motion.h2>
             <motion.h3 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-4xl md:text-5xl font-semibold tracking-tight font-serif text-white-pure"
+                className="text-5xl md:text-7xl font-light tracking-tight font-serif text-white-pure"
             >
                 Find Your Aura.
             </motion.h3>
@@ -149,56 +156,21 @@ export default function Home() {
         <HoneyQuiz />
       </section>
 
-      {/* Instagram Section */}
-      <section className="relative z-20 py-32 bg-obsidian border-t border-white-pure/5">
-        <div className="max-w-7xl mx-auto px-8">
-            <div className="text-center mb-16">
-                <h2 className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.4em] mb-4 font-sans">#AuraGold Community</h2>
-                <h3 className="text-4xl md:text-5xl font-semibold tracking-tight font-serif text-white-pure">Living the Experience.</h3>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[1, 2, 3, 4].map((i) => (
-                    <motion.div 
-                        key={i}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        className="aspect-square bg-surface border border-border-subtle rounded-3xl flex items-center justify-center relative overflow-hidden group"
-                    >
-                        <div className="absolute inset-0 bg-gold-bright/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <span className="text-[10px] uppercase tracking-widest text-white-dim z-10 font-sans">[Social Image {i}]</span>
-                    </motion.div>
-                ))}
-            </div>
-            
-            <div className="mt-16 text-center">
-                <a 
-                    href="#" 
-                    className="inline-flex items-center gap-3 text-gold-bright text-[10px] font-bold uppercase tracking-widest hover:text-white-pure transition-colors font-sans"
-                >
-                    Follow @auragoldhoney <ArrowRight size={14} />
-                </a>
-            </div>
-        </div>
-      </section>
-
-      {/* Email Capture Section */}
-      <section className="relative z-20 py-32 bg-obsidian border-t border-white-pure/5 overflow-hidden">
-        <div className="max-w-5xl mx-auto px-8">
-            <div className="bg-surface border border-border-subtle rounded-[60px] p-12 md:p-24 relative overflow-hidden text-center">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(232,184,75,0.05)_0%,transparent_70%)]" />
+      {/* Email Capture Section - The Inner Circle */}
+      <section className="relative z-20 py-40 bg-obsidian transition-colors duration-500 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-8">
+            <div className="bg-charcoal border border-border-subtle rounded-[80px] p-16 md:p-32 relative overflow-hidden text-center transition-colors duration-500">
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(232,184,75,0.03)_0%,transparent_70%)]" />
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="relative z-10"
                 >
-                    <h2 className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.4em] mb-6 font-sans">Newsletter</h2>
-                    <h3 className="text-4xl md:text-6xl font-semibold tracking-tight font-serif text-white-pure mb-8">Join the Hive.</h3>
-                    <p className="text-white-muted font-light leading-relaxed font-sans text-lg mb-12 max-w-md mx-auto">
-                        Receive exclusive access to our rarest harvests and bio-active wellness research. 10% off your first order.
+                    <h2 className="text-gold-bright text-[10px] font-bold uppercase tracking-[0.5em] mb-8 font-sans">The Inner Circle</h2>
+                    <h3 className="text-5xl md:text-7xl font-light tracking-tight font-serif text-white-pure mb-10">Join the Collective.</h3>
+                    <p className="text-white-muted font-light leading-relaxed font-sans text-lg md:text-xl mb-16 max-w-lg mx-auto">
+                        Gain entry to our rarest private harvests and pioneering wellness research. Your journey into bio-active mastery begins here.
                     </p>
                     
                     <form onSubmit={handleSubscribe} className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
@@ -206,34 +178,24 @@ export default function Home() {
                             type="email" 
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Your email address" 
+                            placeholder="Email address" 
                             required
                             disabled={status === "loading" || status === "success"}
-                            className="flex-1 bg-charcoal border border-border-subtle rounded-full px-8 py-5 text-sm focus:outline-none focus:border-gold-bright/50 transition-colors text-white-soft placeholder:text-white-dim/30 font-sans disabled:opacity-50"
+                            className="flex-1 bg-obsidian border border-border-subtle rounded-full px-10 py-6 text-sm focus:outline-none focus:border-gold-bright/30 transition-all text-white-soft placeholder:text-white-dim/40 font-sans disabled:opacity-50"
                         />
                         <button 
                             type="submit"
                             disabled={status === "loading" || status === "success"}
-                            className="px-10 py-5 bg-white-pure text-obsidian text-[10px] font-bold uppercase tracking-[0.2em] rounded-full hover:scale-105 transition-transform shadow-xl font-sans whitespace-nowrap disabled:opacity-50"
+                            className="px-12 py-6 bg-white-pure text-obsidian text-[10px] font-bold uppercase tracking-[0.3em] rounded-full hover:bg-gold-bright transition-all shadow-2xl font-sans whitespace-nowrap disabled:opacity-50"
                         >
-                            {status === "loading" ? "Joining..." : status === "success" ? "Joined ✓" : "Subscribe"}
+                            {status === "loading" ? "Joining..." : status === "success" ? "Accepted ✓" : "Request Access"}
                         </button>
                     </form>
-
-                    {status === "success" && (
-                        <p className="mt-4 text-success text-sm font-sans">
-                            Welcome to the Hive! Check your inbox for 10% off.
-                        </p>
-                    )}
-                    {status === "error" && (
-                        <p className="mt-4 text-error text-sm font-sans">
-                            Something went wrong. Please try again.
-                        </p>
-                    )}
                 </motion.div>
             </div>
         </div>
       </section>
+
       
       {/* Footer / Extra Content */}
       <footer className="relative z-20 py-24 px-8 md:px-12 border-t border-white-pure/5 bg-obsidian">
