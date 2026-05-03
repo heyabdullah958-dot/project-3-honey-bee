@@ -1,0 +1,141 @@
+@import \"tailwindcss\";
+
+:root {
+  /* PRIMARY PALETTE (Dark - Default) */
+  --obsidian: #0A0805;
+  --obsidian-rgb: 10, 8, 5;
+  --charcoal: #111009;
+  --surface: #1A1610;
+  --border-subtle: #2A2218;
+
+  /* GOLD SPECTRUM */
+  --gold-dim: #8B6914;
+  --gold-mid: #C49A2C;
+  --gold-bright: #E8B84B;
+  --gold-glow: #F5CC6A;
+  --gold-shimmer: #FDE68A;
+
+  /* NEUTRAL TEXT */
+  --white-pure: #FFFFFF;
+  --white-soft: #F5F0E8;
+  --white-muted: #B8A99A;
+  --white-dim: #7A6E65;
+
+  /* SEMANTIC */
+  --success: #4ADE80;
+  --error: #F87171;
+  --warning: #FBBF24;
+
+  /* TYPOGRAPHY SCALES */
+  --text-display-xl: clamp(3.5rem, 8vw, 8rem);
+  --text-display-lg: clamp(2.5rem, 5vw, 5rem);
+  --text-display-md: clamp(1.75rem, 3vw, 2.5rem);
+  --text-body-lg: clamp(1.125rem, 1.5vw, 1.25rem);
+}
+
+[data-theme=\"light\"] {
+  /* MODERN MINIMAL LIGHT PALETTE */
+  --obsidian: oklch(99% 0.002 240);
+  --obsidian-rgb: 252, 252, 250;
+  --charcoal: oklch(100% 0 0);
+  --surface: oklch(100% 0 0);
+  --border-subtle: oklch(92% 0.005 250);
+
+  /* REFINED LIGHT GOLD */
+  --gold-dim: oklch(50% 0.1 80);
+  --gold-mid: oklch(58% 0.12 80);
+  --gold-bright: oklch(64% 0.13 80);
+  --gold-glow: oklch(75% 0.1 80);
+  --gold-shimmer: oklch(85% 0.08 80);
+
+  /* NEUTRAL TEXT (Inverted) */
+  --white-pure: #000000;
+  --white-soft: oklch(18% 0.012 250);
+  --white-muted: oklch(54% 0.012 250);
+  --white-dim: oklch(70% 0.01 250);
+}
+
+@theme inline {
+  --color-obsidian: var(--obsidian);
+  --color-charcoal: var(--charcoal);
+  --color-surface: var(--surface);
+  --color-border-subtle: var(--border-subtle);
+
+  --color-gold-dim: var(--gold-dim);
+  --color-gold-mid: var(--gold-mid);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-glow: var(--gold-glow);
+  --color-gold-shimmer: var(--gold-shimmer);
+
+  --color-white-pure: var(--white-pure);
+  --color-white-soft: var(--white-soft);
+  --color-white-muted: var(--white-muted);
+  --color-white-dim: var(--white-dim);
+
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+
+  /* Mapping for legacy compatibility */
+  --color-background: var(--obsidian);
+  --color-foreground: var(--white-soft);
+  --color-gold: var(--gold-bright);
+
+  /* Fonts */
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--obsidian);
+  color: var(--white-soft);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  font-feature-settings: \"ss01\", \"ss02\", \"cv01\", \"cv02\";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Button Glow Pulse Animation */
+@keyframes gold-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(232, 184, 75, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(232, 184, 75, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(232, 184, 75, 0.4);
+  }
+}
+
+.animate-gold-pulse {
+  animation: gold-glow 3s infinite ease-in-out;
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dim);
+}
+
